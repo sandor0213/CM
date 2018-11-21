@@ -1,0 +1,2 @@
+module MeetroomsHelper
+end

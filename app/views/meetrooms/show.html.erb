@@ -1,0 +1,5 @@
+<%= @meetroom.title  %> <br>
+
+<%= link_to "Reservation", reservationwithmeetroomid_path(@meetroom.id) %> <br>
+
+| <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> <br> | <%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> |

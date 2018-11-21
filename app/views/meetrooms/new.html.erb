@@ -1,0 +1,7 @@
+<%= form_for @meetroom, url: meetrooms_path do |m| %>
+<%= m.label 'Number' %> <br>
+<%= m.text_field :number %> <br>
+<%= m.label :title %> <br>
+<%= m.text_field :title %> <br>
+<%= m.submit 'Add new meetroom' %>
+<% end %>

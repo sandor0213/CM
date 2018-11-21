@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meetroom_id: 1
+  userName: MyString
+  timeStart: MyString
+  timeEnd: MyString
+
+two:
+  meetroom_id: 1
+  userName: MyString
+  timeStart: MyString
+  timeEnd: MyString

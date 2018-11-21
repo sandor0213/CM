@@ -1,0 +1,10 @@
+<%= form_for @reservation, url: reservationid_path(@meetroom.id) do |r| %>
+<%= @meetroom.title %> <br>
+<%= @meetroom.id %> <br>
+<%= r.label :timeStart %> <br>
+<%= r.text_field :timeStart %> <br>
+<%= r.label :timeEnd %> <br>
+<%= r.text_field :timeEnd %> <br>
+<%= r.text_field :userName %>
+<%= r.submit 'Res meetroom' %>
+<% end %>

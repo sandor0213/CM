@@ -1,0 +1,15 @@
+class CreateReservations < ActiveRecord::Migration[5.2]
+  def change
+    create_table :reservations do |t|
+      t.integer :meetroom_id
+      t.string :userName
+      t.string :timeStart
+      t.string :timeEnd
+
+      t.belongs_to :meetroom
+
+
+      t.timestamps
+    end
+  end
+end
