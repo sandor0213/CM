@@ -2,4 +2,16 @@
 
 <%= link_to "Reservation", reservationwithmeetroomid_path(@meetroom.id) %> <br>
 
-| <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> <br> | <%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> |
+| <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> <br> | <%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
+
+<% @reservations.each do |r| %>
+<% if r.meetroom_id == @meetroom.id %>
+<%= r.meetroom_id %>
+<%= r.userName %> <br>
+
+<%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<hr>
+<% end %>
+
+
+	<% end %>

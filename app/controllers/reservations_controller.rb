@@ -4,10 +4,6 @@ class ReservationsController < ApplicationController
 	def index 
 	end
 
-	def new 
-		@reservation = Reservation.new
-	end
-
 	def reservationwithmeetroomid
 		@reservation = Reservation.new
 		@meetroom = Meetroom.find(params[:id])
@@ -19,19 +15,6 @@ class ReservationsController < ApplicationController
 		if @reservation.save
 			redirect_to root_path
 		end
-	end
-
-	def create 
-# @meetroom = Meetroom.first
-# 		@reservation = @meetroom.reservations.build(reservation_params)
-# 		if @reservation.save
-# 			redirect_to root_path
-# 		end
-
-		# @reservation = Meetroom.reservations.build(reservation_params)
-		# if @reservation.save
-		# 	redirect_to root_path
-		# end
 	end
 
 	def show 
@@ -49,8 +32,8 @@ class ReservationsController < ApplicationController
 	end
 
 	def destroy 
-		@meetroom.destroy
-		redirect_to meetrooms_path
+		@reservation.destroy
+		redirect_to meetroom_path(@reservation.meetroom_id)
 	end
 
 	private

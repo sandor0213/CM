@@ -3,6 +3,7 @@ class MeetroomsController < ApplicationController
 
 	def index 
 	@meetrooms = Meetroom.all
+
 	end
 
 	def new 
@@ -17,7 +18,7 @@ class MeetroomsController < ApplicationController
 	end
 
 	def show 
-
+	@reservations = Reservation.all
 	end
 
 	def edit 
