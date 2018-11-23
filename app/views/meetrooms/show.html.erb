@@ -7,7 +7,8 @@
 <% @reservations.each do |r| %>
 <% if r.meetroom_id == @meetroom.id %>
 <%= r.meetroom_id %>
-<%= r.userName %> <br>
+<%= r.userName %>
+<%= r.timeStart %> <br>
 
 <%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
 <hr>
