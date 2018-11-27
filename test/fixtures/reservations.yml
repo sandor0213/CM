@@ -3,11 +3,13 @@
 one:
   meetroom_id: 1
   userName: MyString
+  date: MyString
   timeStart: MyString
   timeEnd: MyString
 
 two:
   meetroom_id: 1
   userName: MyString
+  date: MyString
   timeStart: MyString
   timeEnd: MyString

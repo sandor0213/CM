@@ -4,7 +4,6 @@ class CreateMeetrooms < ActiveRecord::Migration[5.2]
       t.integer :number
       t.string :title
 
-      t.has_many :reservations
 
       t.timestamps
     end

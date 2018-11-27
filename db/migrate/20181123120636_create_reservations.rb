@@ -3,11 +3,9 @@ class CreateReservations < ActiveRecord::Migration[5.2]
     create_table :reservations do |t|
       t.integer :meetroom_id
       t.string :userName
+      t.string :date
       t.string :timeStart
       t.string :timeEnd
-
-      t.belongs_to :meetroom
-
 
       t.timestamps
     end

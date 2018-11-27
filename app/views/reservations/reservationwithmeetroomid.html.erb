@@ -12,9 +12,16 @@
 <%= select_year(Date.today, start_year: 2005, end_year: 1900) %>
 <%= select_year(Date.today, start_year: 2005, end_year: 1900) %>
 <hr>
-<%= r.select :timeStart, ['110', '120']%>
+<%= r.select :timeStart, ['00','10', '20', '30','40', '50'] %>
+<%= r.select :timeStart, ['8', '9', '10', '11', '12', '13', '14', '15', '16'] %> - 
+<%= r.select :timeStart, ['00','10', '20', '30','40', '50'] %>
+ <%= ss = r.select :timeStart, ['00','10', '20', '30','40', '50'] %>
+ <%= sss = r.select :timeStart, ['88','89'] %>
+ <%= timeEnd = ss + sss %>
+<%= r.timeEnd = :timeEnd %>
+  <input id='city' name='company[company_office][0][city]' value='<%= o.office %>' type='text' />
 
- 
+
 <%= r.submit 'Res meetroom' %>
   <hr>
 

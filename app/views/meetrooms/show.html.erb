@@ -9,7 +9,9 @@
 <%= r.meetroom_id %>
 <%= r.userName %>
 <%= r.timeStart %> <br>
-
+<hr>
+<%= r.timeEnd %>
+<hr>
 <%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
 <hr>
 <% end %>
