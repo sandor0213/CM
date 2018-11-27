@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
 		@meetroom = Meetroom.find(params[:id])
 		@reservation = @meetroom.reservations.build(reservation_params)
 		if @reservation.save
-			redirect_to root_path
+			redirect_to meetroom_path(@meetroom.id)
 		end
 	end
 

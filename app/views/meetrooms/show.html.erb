@@ -10,7 +10,8 @@
 <%= r.userName %>
 <%= r.timeStart %> <br>
 <hr>
-<%= r.timeEnd %>
+<%= r.timeEnd.to_time %> - <%= r.timeEnd.to_time %>
+
 <hr>
 <%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
 <hr>
