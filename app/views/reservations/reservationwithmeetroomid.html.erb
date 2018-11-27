@@ -5,9 +5,22 @@
 <%= r.text_field :timeStart %> <br>
 <%= r.label :timeEnd %> <br>
 <%= r.text_field :timeEnd %> <br>
-<%= r.text_field :userName %>
+<%= r.text_field :userName %> <br>
 
+
+<%= r.datetime_select :timeEnd, :start_year => Date.current.year, :end_year => Date.current.year %>
+
+<hr>
+
+<%= r.date_select :date, :start_year => Date.current.year, :end_year => 2017 %>
+<hr>
+<hr>
 <%= r.date_field :timeStart, as: :date, value: r.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %>
+<hr>
+<%= r.datetime_field :timeStart %>
+<hr>
+<%= r.datetime_field :timeStart, as: :datetime, value: r.object.try(:strftime,"%m/%d/%Y/%h/%m/%r"), :default => "11/13/2018, 01:59 PM" , class: 'form-control' %>
+
 <hr>
 <%= select_year(Date.today, start_year: 2005, end_year: 1900) %>
 <%= select_year(Date.today, start_year: 2005, end_year: 1900) %>
@@ -20,9 +33,9 @@
  <%= timeEnd = ss + sss %>
 
 <%= require "date" %>
-<%= instance = DateTime.parse("2018-01-01 16:35:45 -0800") %>
-<%= d1       = DateTime.parse("2013-12-25 04:45:00 -0800") %>
-<%= d2       = DateTime.parse("2015-12-25 5:00:01 -0800") %>
+<%= instance = DateTime.parse("16:35:45 -0800") %>
+<%= d1       = DateTime.parse("04:45:00 -0800") %>
+<%= d2       = DateTime.parse("5:00:01 -0800") %>
 <%= p instance.between?( d1, d2 ) %>
 
 
