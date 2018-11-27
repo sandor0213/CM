@@ -18,8 +18,13 @@
  <%= ss = r.select :timeStart, ['00','10', '20', '30','40', '50'] %>
  <%= sss = r.select :timeStart, ['88','89'] %>
  <%= timeEnd = ss + sss %>
-<%= r.timeEnd = :timeEnd %>
-  <input id='city' name='company[company_office][0][city]' value='<%= o.office %>' type='text' />
+
+<%= require "date" %>
+<%= instance = DateTime.parse("2018-01-01 16:35:45 -0800") %>
+<%= d1       = DateTime.parse("2013-12-25 04:45:00 -0800") %>
+<%= d2       = DateTime.parse("2015-12-25 5:00:01 -0800") %>
+<%= p instance.between?( d1, d2 ) %>
+
 
 
 <%= r.submit 'Res meetroom' %>
