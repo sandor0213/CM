@@ -9,8 +9,11 @@
 <%= r.meetroom_id %>
 <%= r.userName %>
 <%= r.timeStart %> <br>
+<%= r.timeEnd %> <br>
+<%= link_to r.timeEnd.strip("%Y %m %d") %>
+<%= "13-12-2012".to_time  %>
 <hr>
-<%= r.timeEnd.to_time %> - <%= r.timeEnd.to_time %>
+<%= r.timeStart.to_time %> - <%= r.timeEnd.to_time %>
 
 <hr>
 <%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
