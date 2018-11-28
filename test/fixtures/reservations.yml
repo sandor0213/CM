@@ -3,13 +3,17 @@
 one:
   meetroom_id: 1
   userName: MyString
-  date: MyString
-  timeStart: MyString
-  timeEnd: MyString
+  dateBoth: 2018-11-28
+  timeStart: 2018-11-28 12:16:32
+  timeEnd: 2018-11-28 12:16:32
+  timeDateStart: 2018-11-28 12:16:32
+  timeDateEnd: 2018-11-28 12:16:32
 
 two:
   meetroom_id: 1
   userName: MyString
-  date: MyString
-  timeStart: MyString
-  timeEnd: MyString
+  dateBoth: 2018-11-28
+  timeStart: 2018-11-28 12:16:32
+  timeEnd: 2018-11-28 12:16:32
+  timeDateStart: 2018-11-28 12:16:32
+  timeDateEnd: 2018-11-28 12:16:32

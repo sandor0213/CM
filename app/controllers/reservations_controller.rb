@@ -38,7 +38,7 @@ class ReservationsController < ApplicationController
 
 	private
 	def reservation_params
-		params.require(:reservation).permit(:meetroom_id ,:userName, :timeStart, :timeEnd)
+		params.require(:reservation).permit(:meetroom_id ,:userName, :dateBoth, :timeStart, :timeEnd, :timeDateStart, :timeDateEnd)
 	end
 
 	def find_reservation

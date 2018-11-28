@@ -3,13 +3,10 @@
 <%= @meetroom.id %> <br>
 <%= r.text_field :userName %> <br>
 
+<hr>
+<%= r.datetime_select :timeDateStart, start_year: Date.current.year, end_year: Date.current.year %> <br>
+<%= r.datetime_select :timeDateEnd, start_year: Date.current.year, end_year: Date.current.year %>
 
-<%= r.label :timeEnd %> <br>
-<%= r.datetime_select :timeEnd, start_year: Date.current.year, end_year: Date.current.year %>
-<br>
-
-<%= r.label :timeStart %> <br>
-<%= r.time_select :timeStart %>
 <hr>
 
 
