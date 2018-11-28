@@ -10,10 +10,30 @@ class ReservationsController < ApplicationController
 	end
 
 	def createid
+		
 		@meetroom = Meetroom.find(params[:id])
 		@reservation = @meetroom.reservations.build(reservation_params)
-		if @reservation.save
-			redirect_to meetroom_path(@meetroom.id)
+		if @reservation.timeStart < @reservation.timeEnd
+
+		@reservations = Reservation.where(meetroom_id: :id, dateBoth: @reservation.dateBoth)
+			if !@reservations.empty?
+				@reservations.each do |res|
+				
+					
+					if @reservation.timeStart > res.timeEnd ||  @reservation.timeEnd < res.timeStart
+			
+			
+						if @reservation.save
+						redirect_to meetroom_path(@meetroom.id)
+						end
+					end
+				end
+			else
+				if @reservation.save
+					redirect_to meetroom_path(@meetroom.id)
+				end
+				
+			end
 		end
 	end
 

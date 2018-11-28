@@ -8,9 +8,14 @@
 <% if r.meetroom_id == @meetroom.id %>
 <hr>
 <%= r.meetroom_id %>
-<%= r.userName %>
-<%= r.timeDateStart.day %> <br>
-<%= r.timeDateEnd %> <br>
+<%= r.userName %> <br>
+<%= r.dateBoth %> <br>
+<%= r.timeStart.hour %> <br>
+<%= r.timeStart.sec %> <br>
+<%= r.timeStart.min %> <br>
+
+
+<%= r.timeEnd %> <br>
 
 <hr>
 
