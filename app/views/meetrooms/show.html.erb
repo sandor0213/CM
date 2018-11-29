@@ -9,18 +9,16 @@
 <hr>
 <%= r.meetroom_id %>
 <%= r.userName %> <br>
+<hr>
 <%= r.dateBoth %> <br>
-<%= r.timeStart.hour %> <br>
-<%= r.timeStart.sec %> <br>
-<%= r.timeStart.min %> <br>
+<%= r.timeStart.hour %> : <%= r.timeStart.min %> -
+<%= r.timeEnd.hour %> : <%= r.timeEnd.min %> <br>
 
-
-<%= r.timeEnd %> <br>
 
 <hr>
 
 <hr>
-<%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Delete", reservation_path(r.id), method: :delete %>
 <hr>
 <% end %>
 

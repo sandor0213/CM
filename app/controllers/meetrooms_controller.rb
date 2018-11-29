@@ -18,7 +18,7 @@ class MeetroomsController < ApplicationController
 	end
 
 	def show 
-	@reservations = Reservation.all
+	@reservations = Reservation.all.order("dateBoth ASC", "timeStart ASC")
 	end
 
 	def edit 
