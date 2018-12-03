@@ -10,31 +10,20 @@ class ReservationsController < ApplicationController
 	end
 
 	def createid
-		isReserved = false
+		
 		@meetroom = Meetroom.find(params[:id])
 		@reservation = @meetroom.reservations.build(reservation_params)
-		if @reservation.timeStart < @reservation.timeEnd
-
-			@reservations = Reservation.where(meetroom_id: @meetroom.id, dateBoth: @reservation.dateBoth)
-			if !@reservations.empty?
-				@reservations.each do |res|
-					if @reservation.timeStart > res.timeEnd || @reservation.timeEnd < res.timeStart		
-						@reservation.userName = @reservation.timeStart > res.timeEnd || @reservation.timeEnd < res.timeStart		
-						isReserved = true
-					end
-						
-				end	
-
-			end
-							if !isReserved
-								if @reservation.save
-									redirect_to meetroom_path(@meetroom.id)
-								end
+		
+							
+							if @reservation.save
+								redirect_to meetroom_path(@meetroom.id)
+							else
+								render 'reservationwithmeetroomid'
 							end
 
 				
 			
-		end
+		
 	end
 
 	def show 
