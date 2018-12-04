@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'validates_overlap'
+gem 'devise'
 
 
 gem 'bootsnap', '>= 1.1.0', require: false

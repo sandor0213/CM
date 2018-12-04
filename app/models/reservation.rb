@@ -11,7 +11,6 @@ class Reservation < ApplicationRecord
 	earlierNow = timeStart < Time.current
 	earlierNowDate = dateBoth < Time.current.to_date
 	datesEqual = dateBoth == Time.current.to_date
-binding.pry
 		if  earlierNowDate || (datesEqual && earlierNow)
 			errors.add(:timeStart, 'start earlier now')
 			throw(:abort)

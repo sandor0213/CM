@@ -1,5 +1,6 @@
 class MeetroomsController < ApplicationController
 	before_action :find_meetroom, except: [:index, :new, :create]
+	before_action :destroy_earlier_reservations, only: [:show]
 
 	def index 
 	@meetrooms = Meetroom.all
@@ -43,6 +44,15 @@ class MeetroomsController < ApplicationController
 
 	def find_meetroom
 		@meetroom = Meetroom.find(params[:id])
+	end
+
+	def destroy_earlier_reservations
+		@reservations = Reservation.all
+		@reservations.map do |reserv|
+			if reserv.dateBoth < Time.current.to_date
+			reserv.destroy
+			end
+		end
 	end
 
 end
