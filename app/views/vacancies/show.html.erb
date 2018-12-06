@@ -1,0 +1,7 @@
+<%= @vacancy.title %> <br>
+<%= @vacancy.experience %> <br>
+<%= @vacancy.deadline %> <br>
+<%= @vacancy.description %> <br>
+
+<%= link_to "Edit", edit_vacancy_path(@vacancy.id) %> <br>
+<%= link_to "Remove", vacancy_path(@vacancy.id), method: :delete, data: {confirm: "Are you sure?"} %>

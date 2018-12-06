@@ -1,0 +1,11 @@
+<%= form_for @vacancy, url: vacancies_path do |v| %>
+<%= v.label :title %> <br>
+<%= v.text_field :title %> <br>
+<%= v.label :experience %> <br>
+<%= v.text_field :experience %> <br>
+<%= v.label :deadline %> <br>
+<%= v.date_select :deadline, start_year: Date.current.year %> <br>
+<%= v.label :description %> <br>
+<%= v.text_area :description, size: "50x15" %> <br>
+<%= v.submit "Add vacancy" %>
+<% end %>

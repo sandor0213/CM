@@ -1,0 +1,14 @@
+<% if @vacancies != [] %>
+
+	<% @vacancies.each do |v| %>
+	<%= v.title %> <br>
+	<%= v.deadline %> <br>
+	<%= link_to "Read more", vacancy_path(v.id) %> <br>
+	<% end %>
+<% else %>
+
+	<h2> No vacancies </h2> <br>
+
+<% end %>
+
+<%= link_to "Add new vacancy", new_vacancy_path %>
