@@ -35,7 +35,6 @@ class Reservation < ApplicationRecord
 
 	def timestart_later_timeend
 		timese = timeStart < timeEnd
-
 		if !timese
 			errors.add(:timeEnd, 'start later end')
 			throw(:abort)

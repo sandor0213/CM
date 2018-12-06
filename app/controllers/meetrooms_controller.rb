@@ -47,11 +47,10 @@ class MeetroomsController < ApplicationController
 	end
 
 	def destroy_earlier_reservations
-		@reservations = Reservation.all
+		@reservations = Reservation.where("dateBoth < ?", Time.now.yesterday.to_date)
 		@reservations.map do |reserv|
-			if reserv.dateBoth < Time.current.to_date
 			reserv.destroy
-			end
+
 		end
 	end
 
