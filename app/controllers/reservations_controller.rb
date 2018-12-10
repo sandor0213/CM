@@ -28,6 +28,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def show 
+		
 
 	end
 

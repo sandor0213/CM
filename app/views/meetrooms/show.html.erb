@@ -5,21 +5,15 @@
 | <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> <br> | <%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
 
 <% @reservations.each do |r| %>
+<hr>
 <% if r.meetroom_id == @meetroom.id %>
-<hr>
-<%= r.meetroom_id %>
 <%= r.userName %> <br>
-<hr>
 <%= r.dateBoth %> <br>
 <%= r.timeStart.hour %> : <%= r.timeStart.min %> -
 <%= r.timeEnd.hour %> : <%= r.timeEnd.min %> <br>
 
+<%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
 
-<hr>
-
-<hr>
-<%= link_to "Delete", reservation_path(r.id), method: :delete %>
-<hr>
 <% end %>
 
 

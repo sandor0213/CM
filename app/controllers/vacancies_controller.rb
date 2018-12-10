@@ -1,6 +1,6 @@
 class VacanciesController < ApplicationController
 before_action :find_vacancy, except: [:index, :new, :create]
-before_action :authenticate_user!, only: [:index, :show]
+before_action :authenticate_applicant!, only: [:index, :show]
 
 def index
 	@vacancies = Vacancy.all.order("deadline ASC")

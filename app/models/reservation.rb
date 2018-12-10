@@ -1,6 +1,8 @@
 class Reservation < ApplicationRecord
 	belongs_to :meetroom
 
+	validates :dateBoth, :timeStart, :timeEnd, presence: true
+
 	validate :timestart_earlier_now
 	validate :already_reserved
 	validate :timestart_later_timeend
