@@ -7,9 +7,18 @@ def new
 end
 
 def create
-	redirect_to root_path
+	@application = Application.new(application_params)
+	if @application.save
+		redirect_to session.delete(:return_to)
+		
+	else  
+		render 'new'
+	end
 end
 
-
+private
+def application_params
+	params.require(:application).permit(:firstname, :lastname, :phonenumber, :email, :expectedsalary, :linkedin, :github, :location, :currency)
+end
 
 end

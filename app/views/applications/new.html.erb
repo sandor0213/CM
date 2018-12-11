@@ -1,3 +1,5 @@
+<% session[:return_to] ||= request.referer %>
+
 <%= @vacancy.title %> <br>
 <%= @vacancy.experience %> <br>
 <%= @vacancy.deadline %> <br>
@@ -6,7 +8,7 @@
 <%= link_to "Edit", edit_vacancy_path(@vacancy.id) %> <br>
 <%= link_to "Remove", vacancy_path(@vacancy.id), method: :delete, data: {confirm: "Are you sure?"} %>
 
-jnkkjm
+
 <%= form_for @application, url: applications_path do |a| %>
 Firstname: <%= a.text_field :firstname %> <br>
 Lastname: <%= a.text_field :lastname %> <br>
