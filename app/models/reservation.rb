@@ -13,6 +13,7 @@ class Reservation < ApplicationRecord
 	earlierNow = timeStart < Time.current
 	earlierNowDate = dateBoth < Time.current.to_date
 	datesEqual = dateBoth == Time.current.to_date
+	
 		if  earlierNowDate || (datesEqual && earlierNow)
 			errors.add(:timeStart, 'start earlier now')
 			throw(:abort)
@@ -22,7 +23,7 @@ class Reservation < ApplicationRecord
 	def already_reserved
 		@reservations = Reservation.where(meetroom_id: meetroom.id, dateBoth: dateBoth)
 		invalid_time = @reservations.map do |res|
-			
+			binding.pry
 			!((timeStart.hour * 60 + timeStart.min) > (res.timeEnd.hour * 60 + res.timeEnd.min) || (timeEnd.hour * 60 + timeEnd.min) < (res.timeStart.hour * 60 + res.timeStart.min))
 
 		end

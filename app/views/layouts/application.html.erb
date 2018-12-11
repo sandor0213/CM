@@ -13,7 +13,16 @@
 
     | <%= link_to "Company", root_path %> | 
     <%= link_to "Vacancy", vacancies_path %> |
-    <%= link_to "Meetroom", meetrooms_path %> | <br>
+    <%= link_to "Meetroom", meetrooms_path %> | 
+
+
+    <% if applicant_signed_in? %>
+    <%= link_to "Log out", destroy_applicant_session_path, method: :delete %>
+    <% else %>
+    <%= link_to "Log in", new_applicant_session_path %> 
+    <% end %>
+| <br>
+
 
     <%= yield %>
   </body>

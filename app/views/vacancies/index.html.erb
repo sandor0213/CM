@@ -4,6 +4,13 @@
 	<%= v.title %> <br>
 	<%= v.deadline %> <br>
 	<%= link_to "Read more", vacancy_path(v.id) %> <br>
+	<%= link_to "Read moreA", new_application_path(:id => v.id) %> <br>
+
+	<%= form_for @application, url: applications_path do |a| %>
+	<%= a.submit "Search" %>
+	<%= a.select(:id, Vacancy.all.map{|u| ["#{u.id}", u.id]}, :prompt => 'Select a city') %><br>
+	<% end %>
+
 	<% end %>
 <% else %>
 

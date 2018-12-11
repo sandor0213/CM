@@ -14,17 +14,11 @@ class ReservationsController < ApplicationController
 		
 		@meetroom = Meetroom.find(params[:id])
 		@reservation = @meetroom.reservations.build(reservation_params)
-		
-							
-							if @reservation.save
-								redirect_to meetroom_path(@meetroom.id)
-							else
-								render 'reservationwithmeetroomid'
-							end
-
-				
-			
-		
+		if @reservation.save
+			redirect_to meetroom_path(@meetroom.id)
+		else
+			render 'reservationwithmeetroomid'
+		end
 	end
 
 	def show 
