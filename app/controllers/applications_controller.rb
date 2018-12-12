@@ -1,13 +1,19 @@
 class ApplicationsController < ApplicationController
 
-def new
+def index
 	@vacancies = Vacancy.all
 	@vacancy = @vacancies.find(params[:id])
+	@applications = Application.find(params[:id])
+end
+
+def new
+	@vacancy = Vacancy.find(params[:id])
 	@application = Application.new
 end
 
 def create
-	@application = Application.new(application_params)
+	@vacancy = Vacancy.find(params[:id])
+	@application = @vacancy.applications.build(application_params)
 	if @application.save
 		redirect_to session.delete(:return_to)
 		
@@ -16,9 +22,13 @@ def create
 	end
 end
 
+
+
 private
 def application_params
-	params.require(:application).permit(:firstname, :lastname, :phonenumber, :email, :expectedsalary, :linkedin, :github, :location, :currency)
+	params.require(:application).permit(:vacancy_id, :firstname, :lastname, :phonenumber, :email, :expectedsalary, :linkedin, :github, :location, :currency)
 end
 
 end
+
+	

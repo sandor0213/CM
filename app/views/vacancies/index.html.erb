@@ -1,20 +1,17 @@
 <% if @vacancies != [] %>
 
 	<% @vacancies.each do |v| %>
+	<hr>
 	<%= v.title %> <br>
 	<%= v.deadline %> <br>
-	<%= link_to "Read more", new_application_path(:id => v.id) %> <br>
-
-	<%= form_for @application, url: applications_path do |a| %>
-	<%= a.submit "Search" %>
-	<%= a.select(:id, Vacancy.all.map{|u| ["#{u.id}", u.id]}, :prompt => 'Select a city') %><br>
-	<% end %>
-
+	<%= link_to "Read more", new_application_path(:id => v.id) %> <br> |
+	<%= link_to "Show applications", applications_path(:id => v.id) %> <br> 
 	<% end %>
 <% else %>
-
+<hr>
 	<h2> No vacancies </h2> <br>
 
 <% end %>
 
+<hr>
 <%= link_to "Add new vacancy", new_vacancy_path %>

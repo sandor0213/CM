@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_133508) do
+ActiveRecord::Schema.define(version: 2018_12_11_170936) do
 
   create_table "applicants", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_133508) do
     t.datetime "updated_at", null: false
     t.string "location"
     t.string "currency"
+    t.integer "vacancy_id"
   end
 
   create_table "companies", force: :cascade do |t|
