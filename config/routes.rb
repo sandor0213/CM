@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 	
+
   devise_for :applicants
 	resources :meetrooms
 	get "/meetrooms/:id/reservations", to: "reservations#reservationwithmeetroomid", as: :reservationwithmeetroomid
 	post "/reservationid/:id", to: "reservations#createid", as: :reservationid
+	post "login_member", to: "members#checkCredentials"
 	resources :reservations
 	resources :vacancies
 	resources :applications
