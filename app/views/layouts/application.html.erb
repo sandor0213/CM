@@ -14,6 +14,9 @@
     | <%= link_to "Company", root_path %> | 
     <%= link_to "Vacancy", vacancies_path %> |
     <%= link_to "Meetroom", meetrooms_path %> | 
+    <% if @member.nil? %>
+    <%= link_to "Sign up (for members)", new_member_path %> | 
+    <% end %>
 
 
     <% if applicant_signed_in? %>

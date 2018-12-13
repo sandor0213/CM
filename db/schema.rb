@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_170936) do
+ActiveRecord::Schema.define(version: 2018_12_12_173217) do
 
   create_table "applicants", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_170936) do
     t.string "location"
     t.string "currency"
     t.integer "vacancy_id"
+    t.string "skype"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -51,6 +52,30 @@ ActiveRecord::Schema.define(version: 2018_12_11_170936) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "memberparams", force: :cascade do |t|
+    t.integer "member_id"
+    t.text "position"
+    t.string "email"
+    t.string "skype"
+    t.string "phonenumber"
+    t.string "emergencyname"
+    t.string "emergencyphonenumber"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "birthday"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "passwordconfirmation"
+    t.string "promocode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "firstname"
+    t.string "lastname"
   end
 
   create_table "reservations", force: :cascade do |t|

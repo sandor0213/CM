@@ -1,6 +1,8 @@
 class MeetroomsController < ApplicationController
+
 	before_action :find_meetroom, except: [:index, :new, :create]
 	before_action :destroy_earlier_reservations, only: [:show]
+	before_action :authorize, only: [:new]
 
 	def index 
 	@meetrooms = Meetroom.all

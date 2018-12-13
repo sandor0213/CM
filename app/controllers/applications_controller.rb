@@ -12,7 +12,8 @@ def new
 end
 
 def create
-	@vacancy = Vacancy.find(params[:id])
+	@vacancies = Vacancy.all
+	@vacancy = @vacancies.find(params[:id])
 	@application = @vacancy.applications.build(application_params)
 	if @application.save
 		redirect_to session.delete(:return_to)
@@ -26,7 +27,7 @@ end
 
 private
 def application_params
-	params.require(:application).permit(:vacancy_id, :firstname, :lastname, :phonenumber, :email, :expectedsalary, :linkedin, :github, :location, :currency)
+	params.require(:application).permit(:vacancy_id, :firstname, :lastname, :phonenumber, :email, :expectedsalary, :linkedin, :github, :location, :currency, :skype)
 end
 
 end

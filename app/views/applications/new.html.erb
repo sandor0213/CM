@@ -9,9 +9,10 @@
 <%= link_to "Remove", vacancy_path(@vacancy.id), method: :delete, data: {confirm: "Are you sure?"} %>
 
 
-<%= form_for @application, url: applications_path do |a| %>
+<%= form_for @application, url: applications_path(:id => @vacancy.id) do |a| %>
 Firstname: <%= a.text_field :firstname %> <br>
 Lastname: <%= a.text_field :lastname %> <br>
+Skype: <%= a.text_field :skype %> <br>
 Phonenumber: <%= a.text_field :phonenumber %> <br>
 Location: <%= a.text_field :location %> <br>
 E-mail: <%= a.email_field :email %> <br>

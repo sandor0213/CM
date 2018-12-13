@@ -1,4 +1,4 @@
 class Application < ApplicationRecord
-	belongs_to :meetroom
+	belongs_to :vacancy
 	
 end

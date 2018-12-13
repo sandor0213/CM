@@ -1,0 +1,10 @@
+<%= form_for @member, url: members_path do |m| %>
+<%= m.text_field :firstname %> <br>
+<%= m.text_field :lastname %> <br>
+<%= m.text_field :username %> <br>
+<%= m.text_field :password %> <br>
+<%= m.text_field :passwordconfirmation %> <br>
+<%= m.text_field :promocode %> <br>
+<%= m.submit "Sign up" %>
+<% end %>
+
