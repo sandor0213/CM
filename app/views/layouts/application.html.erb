@@ -14,8 +14,12 @@
     | <%= link_to "Company", root_path %> | 
     <%= link_to "Vacancy", vacancies_path %> |
     <%= link_to "Meetroom", meetrooms_path %> | 
-    <% if @member.nil? %>
+
+ <% if session[:member_id] == nil %>
     <%= link_to "Sign up (for members)", new_member_path %> | 
+     <%= link_to "Log in (for members)", new_member_path %> | 
+    <% else %>
+    <%= link_to "Log out (for members)", member_path(session[:member_id]), method: :delete %> | 
     <% end %>
 
 
