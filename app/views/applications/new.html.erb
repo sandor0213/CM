@@ -4,11 +4,17 @@
 <%= @vacancy.experience %> <br>
 <%= @vacancy.deadline %> <br>
 <%= @vacancy.description %> <br>
+<hr>
 
+<% if !applicant_signed_in? %>
+<% if super_member %>
 <%= link_to "Edit", edit_vacancy_path(@vacancy.id) %> <br>
 <%= link_to "Remove", vacancy_path(@vacancy.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<hr>
+<% end %>
+<% end %>
 
-
+<% if applicant_signed_in? %>
 <%= form_for @application, url: applications_path(:id => @vacancy.id) do |a| %>
 Firstname: <%= a.text_field :firstname %> <br>
 Lastname: <%= a.text_field :lastname %> <br>
@@ -22,4 +28,7 @@ Expected salary: <%= a.text_field :expectedsalary %>
 LinkedIn: <%= a.text_field :linkedin %> <br>
 Github: <%= a.text_field :github %> <br>
 <%= a.submit "Add application" %>
+
+<% end %>
+
 <% end %>

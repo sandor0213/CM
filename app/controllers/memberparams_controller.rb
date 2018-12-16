@@ -13,6 +13,8 @@ class MemberparamsController < ApplicationController
   		@memberparam = @member.build_memberparam(member_params)
   		if @memberparam.save
   			redirect_to memberparam_path(@memberparam.id)
+  		else
+  			render 'new'
   		end	
   	end
 

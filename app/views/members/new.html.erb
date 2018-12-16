@@ -1,10 +1,13 @@
+<h2> Are you a member of this company? Sign up! </h2>
+
 <%= form_for @member, url: members_path do |m| %>
-<%= m.text_field :firstname %> <br>
-<%= m.text_field :lastname %> <br>
-username <%= m.text_field :username %> <br>
-pass <%= m.text_field :password %> <br>
-<%= m.text_field :passwordconfirmation %> <br>
-<%= m.text_field :promocode %> <br>
+Firstname: <%= m.text_field :firstname %> <br>
+Lastname: <%= m.text_field :lastname %> <br>
+Username: <%= m.text_field :username %> <br>
+Password <%= m.password_field :password %> <br>
+Confirm Password: <%= m.password_field :passwordconfirmation %> <br>
+Promocode*: <%= m.password_field :promocode %> <br>
 <%= m.submit "Sign up" %>
 <% end %>
 
+<h6> *It can give your personal Manager </h6>

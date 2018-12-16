@@ -1,11 +1,15 @@
 <%= @meetroom.title  %> <br>
 
+<% if company_member %>
+| <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> | 
+<%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
+<hr>
+<% end %>
+
+
 <%= link_to "Reservation", reservationwithmeetroomid_path(@meetroom.id) %> <br>
 
-<% if super_member %>
-| <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> <br> | 
-<%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
-<% end %>
+
 
 
 <% @reservations.each do |r| %>
@@ -22,7 +26,9 @@
 <%= r.timeStart.hour %> : <%= r.timeStart.min %> -
 <%= r.timeEnd.hour %> : <%= r.timeEnd.min %> <br>
 
-<%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<% if r.member_id == current_member.id %>
+	<%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
 
 <% end %>
 

@@ -1,5 +1,8 @@
+<h2> Are you a member of this company? Log in! </h2>
+
 <%= form_for @member, url: checkCredentials_member_path do |l| %>
-<%= l.text_field :username %> <br>
-<%= l.text_field :password %>
+<br>
+Username: <%= l.text_field :username %> <br>
+Password: <%= l.password_field :password %> <br>
 <%= l.submit "Log in" %>
 <% end %>
