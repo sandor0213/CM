@@ -1,2 +1,28 @@
-<h1>Memberparams#new</h1>
-<p>Find me in app/views/memberparams/new.html.erb</p>
+<%= form_for @memberparam, url: memberparams_path do |m| %>
+<%= m.label :position %> <br>
+<%= m.text_field :position %> <br>
+
+
+<%= m.label :email %> <br>
+<%= m.email_field :email %> <br>
+<%= m.label :skype %> <br>
+<%= m.text_field :skype %> <br>
+<%= m.label :phonenumber %> <br>
+<%= m.text_field :phonenumber %> <br>
+
+<%= m.label :birthday %> <br>
+<%= m.date_select :birthday %> <br>
+
+<%= m.label :emergencyname %> <br>
+<%= m.text_field :emergencyname %> <br>
+<%= m.label :emergencyphonenumber %> <br>
+<%= m.text_field :emergencyphonenumber %> <br>
+
+
+
+<%= m.label :skype %> <br>
+<%= m.text_field :skype %> <br>
+<%= m.file_field :avatar %> <br>
+<%= m.submit 'Save' %>
+<% end %>
+

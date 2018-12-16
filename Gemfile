@@ -36,8 +36,9 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 
 
-gem 'validates_overlap'
+# gem 'validates_overlap'
 gem 'devise'
+gem "paperclip", "~> 6.0.0"
 
 
 gem 'bootsnap', '>= 1.1.0', require: false

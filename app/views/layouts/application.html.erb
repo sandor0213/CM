@@ -15,20 +15,30 @@
     <%= link_to "Vacancy", vacancies_path %> |
     <%= link_to "Meetroom", meetrooms_path %> | 
 
- <% if session[:member_id] == nil %>
+<% if !applicant_signed_in? %>
+  <% if session[:member_id] == nil %>
     <%= link_to "Sign up (for members)", new_member_path %> | 
      <%= link_to "Log in (for members)", login_member_path %> | 
-    <% else %>
+  <% else %>
     <%= link_to "Log out (for members)", logout_member_path(session[:member_id]) %> | 
-    <% end %>
 
-
-    <% if applicant_signed_in? %>
-    <%= link_to "Log out", destroy_applicant_session_path, method: :delete %>
+    <% if current_member.memberparam == nil %>
+     
+    <%= link_to "Profile", new_memberparam_path %>
     <% else %>
-    <%= link_to "Log in", new_applicant_session_path %> 
+    <%= link_to "Profile", memberparam_path(current_member.memberparam.id) %>
+    <% end %> |
+  <% end %>
+<% end %>
+
+ <% if session[:member_id] == nil %>
+    <% if applicant_signed_in? %>
+    <%= link_to "Log out", destroy_applicant_session_path, method: :delete %> |
+    <% else %>
+    <%= link_to "Log in", new_applicant_session_path %> |
     <% end %>
-| <br>
+ <% end %>   
+ <br>
 
 
     <%= yield %>

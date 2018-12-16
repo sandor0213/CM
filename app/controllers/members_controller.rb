@@ -11,7 +11,7 @@ def create
 		session[:member_id] = @member.id
 		redirect_to new_memberparam_path
 	else
-		redirect 'new'
+		render 'new'
 	end
 end
 
@@ -22,11 +22,14 @@ end
 
 def checkCredentials_member
 	@member = Member.find_by(username: params[:member][:username], password: params[:member][:password])
+	# binding.pry
 	if @member != nil
 		session[:member_id] = @member.id
 		redirect_to root_path
 	else 
-		render 'login_member'
+		flash[:error] = "error"
+		@member = Member.new
+      render 'login_member'
 	end
 end
 
