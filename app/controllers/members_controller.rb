@@ -16,6 +16,26 @@ def create
 end
 
 
+def login_member
+	@member = Member.new
+end
+
+def checkCredentials_member
+	@member = Member.find_by(username: params[:member][:username], password: params[:member][:password])
+	if @member != nil
+		session[:member_id] = @member.id
+		redirect_to root_path
+	else 
+		render 'login_member'
+	end
+end
+
+def logout_member
+	session[:member_id] = nil
+	redirect_to root_path
+end
+
+
 def destroy 
 	if @member.destroy
 		redirect_to root_path

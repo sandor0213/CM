@@ -1,0 +1,5 @@
+<%= form_for @member, url: checkCredentials_member_path do |l| %>
+<%= l.text_field :username %> <br>
+<%= l.text_field :password %>
+<%= l.submit "Log in" %>
+<% end %>

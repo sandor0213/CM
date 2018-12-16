@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 	resources :meetrooms
 	get "/meetrooms/:id/reservations", to: "reservations#reservationwithmeetroomid", as: :reservationwithmeetroomid
 	post "/reservationid/:id", to: "reservations#createid", as: :reservationid
-	post "login_member", to: "members#checkCredentials"
+	get "login_member", to: "members#login_member"
+	post "checkCredentials_member", to: "members#checkCredentials_member"
+	get "logout_member/:id", to: "members#logout_member", as: :logout_member
 	resources :reservations
 	resources :vacancies
 	resources :applications

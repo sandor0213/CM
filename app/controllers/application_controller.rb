@@ -6,7 +6,7 @@ def current_member
   helper_method :current_member
 
   def authorize
-    redirect_to new_member_path unless current_member
+    redirect_to login_member_path unless current_member
   end
-
+    
 end

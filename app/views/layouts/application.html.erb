@@ -19,7 +19,7 @@
     <%= link_to "Sign up (for members)", new_member_path %> | 
      <%= link_to "Log in (for members)", login_member_path %> | 
     <% else %>
-    <%= link_to "Log out (for members)", member_path(session[:member_id]), method: :delete %> | 
+    <%= link_to "Log out (for members)", logout_member_path(session[:member_id]) %> | 
     <% end %>
 
 
