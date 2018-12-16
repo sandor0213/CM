@@ -2,11 +2,21 @@
 
 <%= link_to "Reservation", reservationwithmeetroomid_path(@meetroom.id) %> <br>
 
-| <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> <br> | <%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
+<% if super_member %>
+| <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> <br> | 
+<%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
+<% end %>
+
 
 <% @reservations.each do |r| %>
 <hr>
 <% if r.meetroom_id == @meetroom.id %>
+
+
+
+<%	@member = @members.find_by(id: r.member_id) %>
+<%= @member.firstname + " " + @member.lastname %> 
+<%= image_tag @member.memberparam.avatar.url(:extrathumb) %>
 <%= r.userName %> <br>
 <%= r.dateBoth %> <br>
 <%= r.timeStart.hour %> : <%= r.timeStart.min %> -

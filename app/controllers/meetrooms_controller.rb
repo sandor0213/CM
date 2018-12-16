@@ -21,6 +21,7 @@ class MeetroomsController < ApplicationController
 	end
 
 	def show 
+	@members = Member.all 
 	@reservations = Reservation.all.order("dateBoth ASC", "timeStart ASC")
 	end
 

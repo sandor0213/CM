@@ -11,9 +11,10 @@ class ReservationsController < ApplicationController
 	end
 
 	def createid
-		
+		params[:reservation][:member_id] = current_member.id
 		@meetroom = Meetroom.find(params[:id])
 		@reservation = @meetroom.reservations.build(reservation_params)
+
 		if @reservation.save
 			redirect_to meetroom_path(@meetroom.id)
 		else
@@ -43,7 +44,7 @@ class ReservationsController < ApplicationController
 
 	private
 	def reservation_params
-		params.require(:reservation).permit(:meetroom_id ,:userName, :dateBoth, :timeStart, :timeEnd, :timeDateStart, :timeDateEnd)
+		params.require(:reservation).permit(:meetroom_id, :member_id, :userName, :dateBoth, :timeStart, :timeEnd, :timeDateStart, :timeDateEnd)
 	end
 
 	def find_reservation
