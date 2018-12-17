@@ -40,6 +40,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "paperclip", "~> 6.0.0"
 gem 'carrierwave', '~> 1.0'
+gem 'activeadmin'
 
 
 gem 'bootsnap', '>= 1.1.0', require: false
