@@ -39,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'validates_overlap'
 gem 'devise'
 gem "paperclip", "~> 6.0.0"
+gem 'carrierwave', '~> 1.0'
 
 
 gem 'bootsnap', '>= 1.1.0', require: false

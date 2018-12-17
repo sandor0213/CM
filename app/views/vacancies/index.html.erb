@@ -4,8 +4,12 @@
 	<hr>
 	<%= v.title %> <br>
 	<%= v.deadline %> <br>
-	<%= link_to "Read more", new_application_path(:id => v.id) %> <br> |
+	<%= link_to "Read more", new_application_path(:id => v.id) %> <br> 
+	<% if !applicant_signed_in? %>
+	<% if super_member %>
 	<%= link_to "Show applications", applications_path(:id => v.id) %> <br> 
+	<% end %>
+	<% end %>
 	<% end %>
 <% else %>
 <hr>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_163243) do
+ActiveRecord::Schema.define(version: 2018_12_16_221505) do
 
   create_table "applicants", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_12_16_163243) do
     t.string "currency"
     t.integer "vacancy_id"
     t.string "skype"
+    t.string "applicationfile"
   end
 
   create_table "companies", force: :cascade do |t|

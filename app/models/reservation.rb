@@ -10,7 +10,6 @@ class Reservation < ApplicationRecord
 
 
 	def timestart_earlier_now
-		binding.pry
 	earlierNow = timeStart < Time.current
 	earlierNowDate = dateBoth < Time.current.to_date
 	datesEqual = dateBoth == Time.current.to_date

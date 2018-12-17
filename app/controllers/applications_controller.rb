@@ -3,7 +3,7 @@ class ApplicationsController < ApplicationController
 def index
 	@vacancies = Vacancy.all
 	@vacancy = @vacancies.find(params[:id])
-	@applications = Application.find(params[:id])
+	@applications = @vacancy.applications 
 end
 
 def new
@@ -27,7 +27,7 @@ end
 
 private
 def application_params
-	params.require(:application).permit(:vacancy_id, :firstname, :lastname, :phonenumber, :email, :expectedsalary, :linkedin, :github, :location, :currency, :skype)
+	params.require(:application).permit(:applicationfile, :vacancy_id, :firstname, :lastname, :phonenumber, :email, :expectedsalary, :linkedin, :github, :location, :currency, :skype)
 end
 
 end

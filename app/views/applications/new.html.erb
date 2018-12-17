@@ -6,6 +6,20 @@
 <%= @vacancy.description %> <br>
 <hr>
 
+
+<% if @application.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@application.errors.count, "error") %> prohibited this application from being saved:</h2>
+ 
+    <ul>
+    <% @application.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <% if !applicant_signed_in? %>
 <% if super_member %>
 <%= link_to "Edit", edit_vacancy_path(@vacancy.id) %> <br>
@@ -27,7 +41,8 @@ Expected salary: <%= a.text_field :expectedsalary %>
 
 LinkedIn: <%= a.text_field :linkedin %> <br>
 Github: <%= a.text_field :github %> <br>
-<%= a.submit "Add application" %>
+<%= a.file_field :applicationfile %> <br>
+<%= a.submit "Send application" %>
 
 <% end %>
 

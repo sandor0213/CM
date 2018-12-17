@@ -3,4 +3,5 @@ class Meetroom < ApplicationRecord
 
 	validates :number, :title, presence: true
 	validates :number, numericality: {only_integer: true}
+	validates :number, uniqueness: true
 end

@@ -13,9 +13,10 @@
 
     | <%= link_to "Company", root_path %> | 
     <%= link_to "Vacancy", vacancies_path %> |
-    <%= link_to "Meetroom", meetrooms_path %> | 
+   
 
 <% if !applicant_signed_in? %>
+ <%= link_to "Meetroom", meetrooms_path %> | 
   <% if session[:member_id] == nil %>
     <%= link_to "Sign up (for members)", new_member_path %> | 
      <%= link_to "Log in (for members)", login_member_path %> | 
@@ -39,6 +40,7 @@
     <% end %>
  <% end %>   
  <br>
+ <hr> 
 
 
     <%= yield %>
