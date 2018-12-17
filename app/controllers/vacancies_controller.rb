@@ -1,8 +1,11 @@
 class VacanciesController < ApplicationController
 before_action :find_vacancy, except: [:index, :new, :create]
-before_action :authenticate_user!, only: [:index, :show]
+before_action :isLogined_anyone
+# before_action :authenticate_applicant!, only: [:index, :show]
+
 
 def index
+	@application = Application.new
 	@vacancies = Vacancy.all.order("deadline ASC")
 end
 
@@ -20,6 +23,7 @@ def create
 end
 
 def show
+
 end
 
 def edit

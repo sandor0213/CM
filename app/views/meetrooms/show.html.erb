@@ -1,25 +1,37 @@
 <%= @meetroom.title  %> <br>
 
+<% if company_member %>
+| <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> | 
+<%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
+<hr>
+<% end %>
+
+
 <%= link_to "Reservation", reservationwithmeetroomid_path(@meetroom.id) %> <br>
 
-| <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> <br> | <%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
+
+
 
 <% @reservations.each do |r| %>
+
 <% if r.meetroom_id == @meetroom.id %>
+
 <hr>
-<%= r.meetroom_id %>
+
+<%	@member = @members.find_by(id: r.member_id) %>
+<%= @member.firstname + " " + @member.lastname %> 
+<% if @member.memberparam != nil %>
+<%= image_tag @member.memberparam.avatar.url(:extrathumb) %>
+<% end %>
 <%= r.userName %> <br>
-<hr>
 <%= r.dateBoth %> <br>
 <%= r.timeStart.hour %> : <%= r.timeStart.min %> -
 <%= r.timeEnd.hour %> : <%= r.timeEnd.min %> <br>
 
+<% if r.member_id == current_member.id %>
+	<%= link_to "Delete", reservation_path(r.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
 
-<hr>
-
-<hr>
-<%= link_to "Delete", reservation_path(r.id), method: :delete %>
-<hr>
 <% end %>
 
 

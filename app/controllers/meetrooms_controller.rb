@@ -1,6 +1,8 @@
 class MeetroomsController < ApplicationController
+
 	before_action :find_meetroom, except: [:index, :new, :create]
 	before_action :destroy_earlier_reservations, only: [:show]
+	before_action :authorize
 
 	def index 
 	@meetrooms = Meetroom.all
@@ -19,6 +21,7 @@ class MeetroomsController < ApplicationController
 	end
 
 	def show 
+	@members = Member.all 
 	@reservations = Reservation.all.order("dateBoth ASC", "timeStart ASC")
 	end
 

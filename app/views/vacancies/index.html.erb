@@ -1,14 +1,25 @@
 <% if @vacancies != [] %>
 
 	<% @vacancies.each do |v| %>
+	<hr>
 	<%= v.title %> <br>
 	<%= v.deadline %> <br>
-	<%= link_to "Read more", vacancy_path(v.id) %> <br>
+	<%= link_to "Read more", new_application_path(:id => v.id) %> <br> 
+	<% if !applicant_signed_in? %>
+	<% if super_member %>
+	<%= link_to "Show applications", applications_path(:id => v.id) %> <br> 
+	<% end %>
+	<% end %>
 	<% end %>
 <% else %>
-
+<hr>
 	<h2> No vacancies </h2> <br>
 
 <% end %>
 
+<hr>
+<% if !applicant_signed_in? %>
+<% if super_member %>
 <%= link_to "Add new vacancy", new_vacancy_path %>
+<% end %>
+<% end %>

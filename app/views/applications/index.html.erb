@@ -1,0 +1,18 @@
+<% if @applications == [] %>
+<h3> No applications </h3>
+<% else %>
+
+<% @applications.each do |a| %>
+Firstname: <%= a.firstname %> <br>
+Lastname: <%= a.lastname %> <br>
+Phone number: +<%= a.phonenumber %> <br>
+Email: <%= a.email %> <br>
+Location: <%= a.location %> <br>
+Expected salary: <%= a.expectedsalary %> <%= a.currency %> <br>
+LinkedIn: <%= a.linkedin %> <br>
+Github: <%= a.github %> <br>
+Skype: <%= a.skype %> <br>
+<%= link_to "Show CV", a.applicationfile.url %> <br>
+<hr>
+<% end %>
+<% end %>

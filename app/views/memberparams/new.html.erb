@@ -1,0 +1,27 @@
+<%= form_for @memberparam, url: memberparams_path do |m| %>
+<%= m.label :position %> <br>
+<%= m.text_field :position %> <br>
+
+<%= m.label :email %> <br>
+<%= m.email_field :email %> <br>
+
+<%= m.label :skype %> <br>
+<%= m.text_field :skype %> <br>
+
+<%= m.label 'Phone number' %> <br>
++<%= m.text_field :phonenumber %> <br>
+
+<%= m.label :birthday %> <br>
+<%= m.date_select :birthday %> <br>
+
+<%= m.label 'Emergency name' %> <br>
+<%= m.text_field :emergencyname %> <br>
+
+<%= m.label 'Emergency phone number' %> <br>
++<%= m.text_field :emergencyphonenumber %> <br>
+
+<%= m.file_field :avatar %> <br>
+
+<%= m.submit 'Save' %>
+<% end %>
+

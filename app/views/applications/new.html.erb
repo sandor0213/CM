@@ -1,0 +1,49 @@
+<% session[:return_to] ||= request.referer %>
+
+<%= @vacancy.title %> <br>
+<%= @vacancy.experience %> <br>
+<%= @vacancy.deadline %> <br>
+<%= @vacancy.description %> <br>
+<hr>
+
+
+<% if @application.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@application.errors.count, "error") %> prohibited this application from being saved:</h2>
+ 
+    <ul>
+    <% @application.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<% if !applicant_signed_in? %>
+<% if super_member %>
+<%= link_to "Edit", edit_vacancy_path(@vacancy.id) %> <br>
+<%= link_to "Remove", vacancy_path(@vacancy.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<hr>
+<% end %>
+<% end %>
+
+<% if applicant_signed_in? %>
+<%= form_for @application, url: applications_path(:id => @vacancy.id) do |a| %>
+Firstname: <%= a.text_field :firstname %> <br>
+Lastname: <%= a.text_field :lastname %> <br>
+Skype: <%= a.text_field :skype %> <br>
+Phone number: +<%= a.text_field :phonenumber %> <br>
+Location: <%= a.text_field :location %> <br>
+E-mail: <%= a.email_field :email %> <br>
+Expected salary: <%= a.text_field :expectedsalary %>  
+<%= a.select :currency, options_for_select(["$", "€", "₴"]) %> <br>
+
+LinkedIn: <%= a.text_field :linkedin %> <br>
+Github: <%= a.text_field :github %> <br>
+<%= a.file_field :applicationfile %> <br>
+<%= a.submit "Send application" %>
+
+<% end %>
+
+<% end %>
