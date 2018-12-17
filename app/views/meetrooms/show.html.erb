@@ -13,14 +13,16 @@
 
 
 <% @reservations.each do |r| %>
-<hr>
+
 <% if r.meetroom_id == @meetroom.id %>
 
-
+<hr>
 
 <%	@member = @members.find_by(id: r.member_id) %>
 <%= @member.firstname + " " + @member.lastname %> 
+<% if @member.memberparam != nil %>
 <%= image_tag @member.memberparam.avatar.url(:extrathumb) %>
+<% end %>
 <%= r.userName %> <br>
 <%= r.dateBoth %> <br>
 <%= r.timeStart.hour %> : <%= r.timeStart.min %> -

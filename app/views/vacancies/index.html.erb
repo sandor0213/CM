@@ -18,4 +18,8 @@
 <% end %>
 
 <hr>
+<% if !applicant_signed_in? %>
+<% if super_member %>
 <%= link_to "Add new vacancy", new_vacancy_path %>
+<% end %>
+<% end %>

@@ -4,10 +4,14 @@ class Memberparam < ApplicationRecord
 	 has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", extraThumb: "50x50"}, default_url: "/images/:style/missing.png"
   	 validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
-validates :position, :email, :phonenumber, presence: true
+validates :position, :email, presence: true
 validates :position, length: { in: 8..70, message: " must contain 8-70 characters" }
 validates :email, uniqueness: true
 validate :has_16
+
+ validates :phonenumber, :presence => {:message => 'not valid'},
+                     :numericality => true,
+                     :length => { :minimum => 10, :maximum => 15 }
 
 	def has_16
 	child = birthday < 16.years.ago.to_date
