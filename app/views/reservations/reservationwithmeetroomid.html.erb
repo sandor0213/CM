@@ -1,7 +1,7 @@
 <%= form_for @reservation, url: reservationid_path(@meetroom.id) do |r| %>
 <%= link_to "Back", meetroom_path(@meetroom.id) %> <br>
 <hr>
-<%= r.date_select :dateBoth, start_year: Date.current.year, end_year: Date.current.year %> <br>
+<%= r.date_select :dateBoth, start_year: Date.current.year, end_year: Date.current.year %> <b
 <hr>
 <%= r.time_select :timeStart %> -
 <%= r.time_select :timeEnd %> <br>
@@ -11,3 +11,4 @@
   <hr>
 
 <% end %>
+

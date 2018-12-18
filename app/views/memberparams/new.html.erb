@@ -12,7 +12,8 @@
 +<%= m.text_field :phonenumber %> <br>
 
 <%= m.label :birthday %> <br>
-<%= m.date_select :birthday %> <br>
+<%= m.date_select :birthday, start_year: 100.years.ago.to_date.year, end_year: 14.years.ago.to_date.year %> <br>
+
 
 <%= m.label 'Emergency name' %> <br>
 <%= m.text_field :emergencyname %> <br>
