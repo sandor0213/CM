@@ -1,5 +1,5 @@
 class Member < ApplicationRecord
-	has_one :memberparam
+	has_one :memberparam, dependent: :destroy
 
 validates :username, :password, :passwordconfirmation, :promocode, :firstname, :lastname, presence: true
 validates :firstname, :lastname, length: { in: 3..20 }, format: { with: /\A[a-zA-Z]+\z/,
