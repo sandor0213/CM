@@ -10,6 +10,10 @@
 <%= link_to "Reservation", reservationwithmeetroomid_path(@meetroom.id) %> <br>
 
 
+<% if @resservations == [] %>
+<h3> No reservations in this meetrooms</h3>
+<% else %>
+
 
 
 <% @reservations.each do |r| %>
@@ -34,5 +38,5 @@
 
 <% end %>
 
-
-	<% end %>
+<% end %>
+<% end %>

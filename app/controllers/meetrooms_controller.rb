@@ -23,6 +23,8 @@ class MeetroomsController < ApplicationController
 	def show 
 	@members = Member.all 
 	@reservations = Reservation.all.order("dateBoth ASC", "timeStart ASC")
+	@resservations = Reservation.where("meetroom_id = ?", @meetroom.id)
+
 	end
 
 	def edit 
