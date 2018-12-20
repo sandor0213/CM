@@ -1,6 +1,6 @@
 <%= @meetroom.title  %> <br>
 
-<% if company_member %>
+<% if super_member %>
 | <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> | 
 <%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
 <hr>

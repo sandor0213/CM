@@ -34,6 +34,8 @@ class MeetroomsController < ApplicationController
 	def update 
 		if @meetroom.update(meetroom_params)
 			redirect_to meetroom_path(@meetroom.id)
+		else 
+			render 'edit'
 		end
 	end
 
