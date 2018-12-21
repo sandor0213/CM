@@ -52,7 +52,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'sqlite3'
 
-  gem 'bundler', '~> 1.11', '>= 1.11.2'
+   gem 'bundler', '~> 1.17.2', '>= 1.17.2'
 
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -65,7 +65,7 @@ end
 group :development do
   gem 'sqlite3'
 
-  gem 'bundler', '~> 1.11', '>= 1.11.2'
+   gem 'bundler', '~> 1.17.2', '>= 1.17.2'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -83,7 +83,7 @@ group :test do
 end
 
 group :production do
-  gem 'bundler', '~> 1.11', '>= 1.11.2'
+  gem 'bundler', '~> 1.17.2', '>= 1.17.2'
   gem 'pg'
   end
 

@@ -281,7 +281,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   bootsnap (>= 1.1.0)
-  bundler (~> 1.11, >= 1.11.2)
+  bundler (~> 1.17.2, >= 1.17.2)
   byebug
   capybara (>= 2.15)
   carrierwave (~> 1.0)
