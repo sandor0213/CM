@@ -12,6 +12,7 @@ class MemberparamsController < ApplicationController
   	def create
   		@memberparam = @member.build_memberparam(member_params)
   		if @memberparam.save
+        flash[:notice] = "Profile updated succesfully"
   			redirect_to memberparam_path(@memberparam.id)
   		else
   			render 'new'
@@ -32,6 +33,7 @@ class MemberparamsController < ApplicationController
   	def update
   		if @memberparam.update(member_params)
   			redirect_to memberparam_path(@memberparam.id)
+        flash[:notice] = "Profile updated succesfully"
   		else
   			render 'edit'
   		end
