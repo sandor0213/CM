@@ -9,6 +9,7 @@ def create
 	@member = Member.new(member_params)
 	if @member.save
 		session[:member_id] = @member.id
+		flash[:notice] = "Registration has been successful"
 		redirect_to new_memberparam_path
 	else
 		render 'new'
@@ -25,7 +26,9 @@ def checkCredentials_member
 	# binding.pry
 	if @member != nil
 		session[:member_id] = @member.id
+		flash[:notice] = "Login success"
 		redirect_to root_path
+
 	else 
 		flash[:error] = "error"
 		@member = Member.new
@@ -35,6 +38,7 @@ end
 
 def logout_member
 	session[:member_id] = nil
+	flash[:notice] = "Log out success"
 	redirect_to root_path
 end
 

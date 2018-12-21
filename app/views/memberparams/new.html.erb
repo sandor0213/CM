@@ -1,3 +1,16 @@
+<% if @memberparam.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@memberparam.errors.count, "error") %> prohibited this memberparam from being saved:</h2>
+ 
+    <ul>
+    <% @memberparam.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for @memberparam, url: memberparams_path do |m| %>
 <%= m.label :position %> <br>
 <%= m.text_field :position %> <br>
@@ -12,7 +25,8 @@
 +<%= m.text_field :phonenumber %> <br>
 
 <%= m.label :birthday %> <br>
-<%= m.date_select :birthday %> <br>
+<%= m.date_select :birthday, start_year: 100.years.ago.to_date.year, end_year: 14.years.ago.to_date.year %> <br>
+
 
 <%= m.label 'Emergency name' %> <br>
 <%= m.text_field :emergencyname %> <br>

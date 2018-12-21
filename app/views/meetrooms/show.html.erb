@@ -1,6 +1,6 @@
 <%= @meetroom.title  %> <br>
 
-<% if company_member %>
+<% if super_member %>
 | <%= link_to "Edit", edit_meetroom_path(@meetroom.id) %> | 
 <%= link_to "Delete", meetroom_path(@meetroom.id), method: :delete, data: {confirm: "Are you sure?"} %> | <br>
 <hr>
@@ -9,6 +9,10 @@
 
 <%= link_to "Reservation", reservationwithmeetroomid_path(@meetroom.id) %> <br>
 
+
+<% if @resservations == [] %>
+<h3> No reservations in this meetrooms</h3>
+<% else %>
 
 
 
@@ -19,10 +23,10 @@
 <hr>
 
 <%	@member = @members.find_by(id: r.member_id) %>
-<%= @member.firstname + " " + @member.lastname %> 
 <% if @member.memberparam != nil %>
 <%= image_tag @member.memberparam.avatar.url(:extrathumb) %>
 <% end %>
+ <%= link_to @member.firstname + " " + @member.lastname, memberparam_path(r.member_id) %>
 <%= r.userName %> <br>
 <%= r.dateBoth %> <br>
 <%= r.timeStart.hour %> : <%= r.timeStart.min %> -
@@ -34,5 +38,5 @@
 
 <% end %>
 
-
-	<% end %>
+<% end %>
+<% end %>

@@ -13,7 +13,6 @@
 
     | <%= link_to "Company", root_path %> | 
     <%= link_to "Vacancy", vacancies_path %> |
-   
 
 <% if !applicant_signed_in? %>
  <%= link_to "Meetroom", meetrooms_path %> | 
@@ -34,7 +33,7 @@
 
  <% if session[:member_id] == nil %>
     <% if applicant_signed_in? %>
-    <%= link_to "Log out", destroy_applicant_session_path, method: :delete %> |
+    <%= link_to "Log out", destroy_applicant_session_path, method: :delete %> |   
     <% else %>
     <%= link_to "Log in", new_applicant_session_path %> |
     <% end %>
@@ -42,6 +41,9 @@
  <br>
  <hr> 
 
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
 
     <%= yield %>
   </body>

@@ -23,6 +23,8 @@ class MeetroomsController < ApplicationController
 	def show 
 	@members = Member.all 
 	@reservations = Reservation.all.order("dateBoth ASC", "timeStart ASC")
+	@resservations = Reservation.where("meetroom_id = ?", @meetroom.id)
+
 	end
 
 	def edit 
@@ -32,6 +34,8 @@ class MeetroomsController < ApplicationController
 	def update 
 		if @meetroom.update(meetroom_params)
 			redirect_to meetroom_path(@meetroom.id)
+		else 
+			render 'edit'
 		end
 	end
 

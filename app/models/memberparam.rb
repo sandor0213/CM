@@ -14,7 +14,7 @@ validate :has_16
                      :length => { :minimum => 10, :maximum => 15 }
 
 	def has_16
-	child = birthday < 16.years.ago.to_date
+	child = birthday > 16.years.ago.to_date
 		if  child
 			errors.add(:birthday, 'You should be over 16 years old.')
 			throw(:abort)
