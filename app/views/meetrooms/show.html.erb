@@ -26,7 +26,7 @@
 <% if @member.memberparam != nil %>
 <%= image_tag @member.memberparam.avatar.url(:extrathumb) %>
 <% end %>
- <%= link_to @member.firstname + " " + @member.lastname, memberparam_path(r.member_id) %>
+<%= @member.firstname + " " + @member.lastname %>
 <%= r.userName %> <br>
 <%= r.dateBoth %> <br>
 <%= r.timeStart.hour %> : <%= r.timeStart.min %> -
