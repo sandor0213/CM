@@ -1,7 +1,7 @@
 class MeetroomsController < ApplicationController
 
 	before_action :find_meetroom, except: [:index, :new, :create]
-	before_action :destroy_earlier_reservations, only: [:show]
+	# before_action :destroy_earlier_reservations, only: [:show]
 	before_action :authorize
 
 	def index 
@@ -54,10 +54,12 @@ class MeetroomsController < ApplicationController
 	end
 
 	def destroy_earlier_reservations
+		@reservvations = Reservation.all
+		if @reservvations != []
 		@reservations = Reservation.where("dateBoth < ?", Time.now.yesterday.to_date)
 		@reservations.map do |reserv|
 			reserv.destroy
-
+		end
 		end
 	end
 
