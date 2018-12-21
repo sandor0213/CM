@@ -9,9 +9,6 @@ validates :position, length: { in: 8..70, message: " must contain 8-70 character
 validates :email, uniqueness: true
 validate :has_16
 
- validates :phonenumber, :presence => {:message => 'not valid'},
-                     :numericality => true,
-                     :length => { :minimum => 10, :maximum => 15 }
 
 	def has_16
 	child = birthday > 16.years.ago.to_date
