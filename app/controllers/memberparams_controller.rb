@@ -20,9 +20,9 @@ class MemberparamsController < ApplicationController
   	end
 
   	def show
-  		# @member = Member.find_by(id: session[:member_id])
+  		@member = Member.find_by(id: session[:member_id])
       # @member = Member.find_by(id: id)
-        @member = Member.find(params[:id])
+        # @member = Member.find(params[:id])
     
   		@memberparam = @member.memberparam
   	end
